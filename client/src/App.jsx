@@ -12,13 +12,11 @@ import {Toaster} from "react-hot-toast"
 import { Navigate } from "react-router-dom"
 import { useThemeStore } from "./store/useThemeStore"
 const App = () => {
-  const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore();
-  console.log(onlineUsers)
+  const { authUser, checkAuth, isCheckingAuth} = useAuthStore();
   const { theme } = useThemeStore()
   useEffect(()=>{
     checkAuth();
   }, [checkAuth])
-  console.log(authUser)
   if (isCheckingAuth && !authUser) return (
     <div className="flex items-center justify-center h-screen">
       <Loader className="size-10 animate-spin"/>
